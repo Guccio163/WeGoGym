@@ -400,28 +400,36 @@
       "photo": "https://lh5.googleusercontent.com/p/AF1QipNwF_hOUaHPQt0BuYcCKZfI-ZtklV7RK-3sPbCP=w408-h306-k-no",
       "address": "Skawińska 20, 31-066 Kraków",
       "latitude": "50.04828666977867",
-      "longitude": "19.937468075698803"
+      "longitude": "19.937468075698803",
+      "opinion": 4.4,
+      "opinions_number": 35
     },
     {
       "name" : "Siłownia zewnętrzna Planty im. Floriana Nowackiego",
       "photo": "https://www.google.pl/maps/place/Si%C5%82ownia+pod+chmurk%C4%85/@50.0434025,19.9443007,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipPm_hiv0qyaVwp61_rT79m0ZgsG0lQKEPULLSAG!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipPm_hiv0qyaVwp61_rT79m0ZgsG0lQKEPULLSAG%3Dw203-h152-k-no!7i4160!8i3120!4m11!1m2!2m1!1zU2nFgm93bmlhIHpld27EmXRyem5h!3m7!1s0x47165b5d240ee821:0x33ff6364688961dd!8m2!3d50.0434025!4d19.9443007!10e5!15sChVTacWCb3duaWEgemV3bsSZdHJ6bmGSAQNneW3gAQA!16s%2Fg%2F11f3cw034q?entry=ttu",
       "address": "plac Emila Serkowskiego 9, 30-508 Kraków",
       "latitude": "50.043670931994626",
-      "longitude": "19.944332305113655"
+      "longitude": "19.944332305113655",
+      "opinion": 3.5,
+      "opinions_number": 18
     },
     {
       "name" : "Siłownia zewnętrzna Aleja Wawelska",
       "photo": "https://www.google.pl/maps/place/Si%C5%82ownia+na+%C5%9Bwie%C5%BCym+powietrzu/@50.0316923,19.9072507,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipMRlfe1WnwmZYEZrxld5DF6YIBDIbtKQ2AZt9rp!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipMRlfe1WnwmZYEZrxld5DF6YIBDIbtKQ2AZt9rp%3Dw203-h152-k-no!7i4000!8i3000!4m11!1m2!2m1!1zU2nFgm93bmlhIHpld27EmXRyem5h!3m7!1s0x47165c867a8b8079:0x113c7faca284b6ed!8m2!3d50.0316923!4d19.9072507!10e5!15sChVTacWCb3duaWEgemV3bsSZdHJ6bmGSAQNneW3gAQA!16s%2Fg%2F11cn5g8lnz?entry=ttu",
       "address": "Aleja Wawelska, 30-348 Kraków",
       "latitude": "50.03181108893075",
-      "longitude": "19.907242526249377"
+      "longitude": "19.907242526249377",
+      "opinion": 5.0,
+      "opinions_number": 2137
     },
     {
       "name" : "Siłownia zewnętrzna obok Błoni",
       "photo": "https://www.google.pl/maps/place/Si%C5%82ownia+Zewn%C4%99trzna/@50.0563987,19.9088071,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipPut4bKt30NHnqcF7yUff4Isx1UhrEtDM4b1Zmd!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipPut4bKt30NHnqcF7yUff4Isx1UhrEtDM4b1Zmd%3Dw203-h152-k-no!7i4608!8i3456!4m11!1m2!2m1!1zU2nFgm93bmlhIHpld27EmXRyem5h!3m7!1s0x47165b0e1c88dc5d:0xfd50e20536a8107a!8m2!3d50.0563987!4d19.9088071!10e5!15sChVTacWCb3duaWEgemV3bsSZdHJ6bmGSAQNneW3gAQA!16s%2Fg%2F11gk8qywc3?entry=ttu",
       "address": "Zwierzyniec, 30-001 Kraków",
       "latitude": "50.056668913774224",
-      "longitude": "19.908810261813592"
+      "longitude": "19.908810261813592",
+      "opinion": 4.0,
+      "opinions_number": 55
     }
 
   ]
