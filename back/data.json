@@ -79,36 +79,18 @@
       "address": "Armii Krajowej 25, 30-150 Kraków",
       "phone number": "+48 122 908 800",
       "opening hours": {
-        "monday": "00:00 - 00:00",
-        "tuesday": "00:00 - 00:00",
-        "wednesday": "00:00 - 00:00",
-        "thursday": "00:00 - 00:00",
-        "friday": "00:00 - 00:00",
-        "saturday": "00:00 - 00:00",
-        "sunday":"00:00 - 00:00"
+        "monday": "00:00 - 23:59",
+        "tuesday": "00:00 - 23:59",
+        "wednesday": "00:00 - 23:59",
+        "thursday": "00:00 - 3:59",
+        "friday": "00:00 - 23:59",
+        "saturday": "00:00 - 23:59",
+        "sunday":"00:00 - 23:59"
       },
       "honored" : [],
       "opinion": 4.7,
       "opinions_number": 103,
       "services": ["sala fitness", "siłownia", "sauna"]
-    },
-    {
-      "name": "",
-      "address": "",
-      "phone number": "",
-      "opening hours": {
-        "monday": "",
-        "tuesday": "",
-        "wednesday": "",
-        "thursday": "",
-        "friday": "",
-        "saturday": "",
-        "sunday": ""
-      },
-      "opinion": 4.5,
-      "opinions_number": 1634,
-      "services": ["sala fitness", "siłownia", "sauna"]
-
     }
   ]
 }
