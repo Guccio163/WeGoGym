@@ -12,13 +12,14 @@ def read_all_data():
 
 @app.get("/all_data")
 async def read_root():
-    with open("data.json", "r") as file:
-        data = json.load(file)
+    data = read_all_data()
     return data
+
 
 @app.get("/by_price")
 async def read_by_price():
-    with open("data.json", "r") as file:
+    data = read_all_data()
+    return data
 
 
 
