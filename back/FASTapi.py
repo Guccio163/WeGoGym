@@ -20,6 +20,6 @@ async def read_root():
 async def read_by_price():
     data = read_all_data()
     return data
-
+    
 
 
