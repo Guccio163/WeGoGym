@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 import json
 import datetime
-from typing import List
+
+from user_ratings import RatingSystem, Rating, RatingData
 
 app = FastAPI()
+
 
 def read_all_data():
     with open("data.json", "r") as file:
@@ -22,6 +24,29 @@ async def read_gyms(multisport: bool, medicover: bool, services: str, sort_by_pr
     gyms = read_all_data()["gyms"]
     return gyms
 
+
+@app.get("/gyms/{place_id}/rating")
+async def get_place_rating(place_id: str):
+    return read_ratings().get_aggregate_rating(place_id)
+
+
+@app.get("/gyms/{place_id}/rating/{user_id}")
+async def get_place_rating_by_user(place_id: str, user_id: str):
+    return read_ratings().get_rating(place_id, user_id)
+
+
+@app.put("/gyms/{place_id}/rating/{user_id}")
+async def put_rating(place_id: str, user_id: str, rating: RatingData):
+    ratings = read_ratings()
+    rating = Rating(user_id=user_id, personnel=rating.personnel.value, cleanliness=rating.cleanliness.value,
+                    equipment=rating.equipment.value)
+    ratings.add_rating(place_id, rating)
+    ratings.to_json()
+    return await get_place_rating_by_user(place_id, user_id)
+
+
+def read_ratings():
+    return RatingSystem().from_json()
 
 
 def is_time_between(time_str, start_time_str, end_time_str):
@@ -140,5 +165,3 @@ async def opinion():
         gym['combined_score'] = gym['opinion'] * 0.7 + gym['opinions_number'] * 0.3
 
     return sorted(data['gyms'], key=lambda x: x['combined_score'], reverse=True)
-
-
