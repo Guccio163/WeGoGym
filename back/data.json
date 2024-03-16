@@ -1,0 +1,111 @@
+{
+  "gyms": [
+    {
+      "name": "Fitness Platinium Klimeckiego",
+      "address": "Stanisława Klimeckiego 1, 30-705 Kraków",
+      "phone number": "+48 691 553 595",
+      "opening hours": {
+        "monday": "06:00 - 23:00",
+        "tuesday": "06:00 - 23:00",
+        "wednesday": "06:00 - 23:00",
+        "thursday": "06:00 - 23:00",
+        "friday": "06:00 - 23:00",
+        "saturday": "8:00 - 20:00",
+        "sunday": "8:00 - 18:00"
+      },
+      "opinion": 4.5,
+      "opinions_number": 439,
+      "services": ["sala fitness", "siłownia", "sauna"],
+      "pricing":{
+        "cards" : [
+          {
+            "name" : "Open 12 plus",
+            "price" : "99",
+            "duration" : "12"
+          },
+          {
+            "name" : "Open samoodnawialny",
+            "price" : "129",
+            "duration" : "none"
+          },
+          {
+            "name" : "Open Basic",
+            "price" : "159",
+            "duration" : "1"
+          }
+          ]
+      }
+    },
+    {
+      "name": "Siłownia Power2fit",
+      "address": "Kalwaryjska 9/15, 30-504 Kraków",
+      "phone number": "+48 606 515 494",
+      "opening hours": {
+        "monday": "07:30 - 22:00",
+        "tuesday": "06:00 - 22:00",
+        "wednesday": "06:00 - 22:00",
+        "thursday": "06:00 - 22:00" ,
+        "friday": "06:00 - 22:00",
+        "saturday": "08:00 - 14:00",
+        "sunday": "10:00 - 12:00"
+      },
+      "opinion": 4.7,
+      "opinions_number": 103,
+      "services": ["sala fitness", "siłownia", "sauna"],
+      "pricing":{
+        "cards" : [
+          {
+            "name" : "1 miesiąc",
+            "price" : "100",
+            "duration" : "1"
+          },
+          {
+            "name" : "2 miesiące",
+            "price" : "190",
+            "duration" : "2"
+          },
+          {
+            "name" : "6 miesięcy",
+            "price" : "500",
+            "duration" : "6"
+          }
+          ]
+      }
+    },
+    {
+      "name": "CityFit",
+      "address": "Armii Krajowej 25, 30-150 Kraków",
+      "phone number": "+48 122 908 800",
+      "opening hours": {
+        "monday": "00:00 - 00:00",
+        "tuesday": "00:00 - 00:00",
+        "wednesday": "00:00 - 00:00",
+        "thursday": "00:00 - 00:00",
+        "friday": "00:00 - 00:00",
+        "saturday": "00:00 - 00:00",
+        "sunday":"00:00 - 00:00"
+      },
+      "opinion": 4.7,
+      "opinions_number": 103,
+      "services": ["sala fitness", "siłownia", "sauna"]
+    },
+    {
+      "name": "",
+      "address": "",
+      "phone number": "",
+      "opening hours": {
+        "monday": "",
+        "tuesday": "",
+        "wednesday": "",
+        "thursday": "",
+        "friday": "",
+        "saturday": "",
+        "sunday": ""
+      },
+      "opinion": 4.5,
+      "opinions_number": 1634,
+      "services": ["sala fitness", "siłownia", "sauna"]
+
+    }
+  ]
+}
