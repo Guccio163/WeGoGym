@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { View, Text } from "../components/Themed";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { StyleSheet } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import ObjectsContextProvider, {
@@ -22,17 +22,26 @@ export default function ObjectFullScreen() {
   return (
     <View style={styles.infoWrapper}>
       {/* <Text>this is fullscreen: {thisObject.name}</Text> */}
-      <Text style={styles.name}> {thisObject.name}</Text>
-      <Text>{thisObject.address}</Text>
-      {thisObject.openinghours.map((hour)=><Text >{hour}</Text>)}
-      <View></View>
+      <View style={{ alignItems: "center", alignSelf: "center" }}>
+        <Text style={styles.name}> {thisObject.name}</Text>
+        <Text>{thisObject.address}</Text>
+        {thisObject.openinghours.map((hour) => (
+          <Text style={styles.hours}>{hour}</Text>
+        ))}
+      </View>
       <MapView
         style={styles.map}
         provider={PROVIDER_GOOGLE}
         initialRegion={initialRegion}
         showsUserLocation
         showsMyLocationButton
-      />
+      >
+        <Marker
+          coordinate={{ latitude: thisObject.lat, longitude: thisObject.lon }}
+          title={thisObject.name}
+          description={thisObject.address}
+        />
+      </MapView>
     </View>
   );
 }
@@ -53,10 +62,11 @@ const styles = StyleSheet.create({
     elevation: 5, // Podniesienie dla Androida
     display: "flex",
     flexDirection: "row",
+    alignItems: "center",
   },
   infoWrapper: {
     flex: 1,
-    marginTop: 10,
+    paddingTop: 100,
     marginRight: 10,
   },
   image: {
@@ -73,5 +83,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  hours: {
+    fontWeight: "bold",
   },
 });

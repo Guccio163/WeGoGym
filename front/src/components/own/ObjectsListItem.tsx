@@ -5,6 +5,11 @@ import { SportObject } from "../contexts/ObjectsContextProvider";
 import StarRating from "./StarRating";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import { useRouter } from "expo-router";
+// import { Ionicons } from "@expo/vector-icons";
+import Icon from "react-native-ionicons";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faMugSaucer } from "@fortawesome/free-solid-svg-icons/faMugSaucer";
+
 
 interface Props {
   object: SportObject;
@@ -21,14 +26,47 @@ export default function ObjectsListItem({ object }: Props) {
     longitudeDelta: 0.005,
   };
 
-  const getInitialRegion = (lat:number, lon:number)=>{
+  const getInitialRegion = (lat: number, lon: number) => {
     return {
       latitude: lat,
       longitude: lon,
       latitudeDelta: 0.005,
       longitudeDelta: 0.005,
     };
-  }
+  };
+
+  //   const fetchRatings = async () => {
+  //     // CHANGE LINK
+  //     try {
+  //       var data = await fetch("http://127.0.0.1:8000/all_data");
+  //       console.log(data.status);
+  //       var obj = await data.json();
+  //       var objectsArr: SportObject[] = [];
+  //       obj["gyms"].forEach((element: { [x: string]: any }) => {
+  //         objectsArr.push({
+  //           name: element["name"],
+  //           img: element["photo"],
+  //           address: element["address"],
+  //           rate: element["opinion"],
+  //           lat: parseFloat(element["latitude"]),
+  //           lon: parseFloat(element["longitude"]),
+  //           openinghours: [
+  //             `monday: ${element["opening hours"]["monday"]}`,
+  //             `tuesday: ${element["opening hours"]["tuesday"]}`,
+  //             `wednesday: ${element["opening hours"]["wednesday"]}`,
+  //             `thursday: ${element["opening hours"]["thursday"]}`,
+  //             `friday: ${element["opening hours"]["friday"]}`,
+  //             `saturday: ${element["opening hours"]["saturday"]}`,
+  //             `sunday: ${element["opening hours"]["sunday"]}`,
+  //           ],
+  //         });
+  //       });
+  //       console.log(objectsArr);
+  //       setObjects(objectsArr);
+  //     } catch (error) {
+  //       console.error("Błąd pobierania danych:", error);
+  //     }
+  //   };
 
   const navi = useRouter();
   return (
@@ -42,8 +80,9 @@ export default function ObjectsListItem({ object }: Props) {
           <Text style={styles.name}>{object.name}</Text>
           <Text>{object.address}</Text>
           {/* <Text>ocena: {object.rate}</Text> */}
-
           <StarRating rating={object.rate} />
+          <FontAwesomeIcon icon={faMugSaucer} />
+
           {/* <MapView
             style={styles.map}
             provider={PROVIDER_GOOGLE}
@@ -82,7 +121,6 @@ const styles = StyleSheet.create({
     height: 100,
     margin: 10,
     borderRadius: 10,
-
   },
   map: {
     width: "95%",
