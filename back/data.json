@@ -178,7 +178,201 @@
           },
           {
             "name": "Open Basic",
-            "price": "159",
+            "price": "77",
+            "duration": "1",
+            "type": "normal"
+          }
+        ],
+        "single": [
+          {
+            "name": "Wejście jednorazowe",
+            "price": "39",
+            "type": "normal",
+            "duration": "1"
+          },
+          {
+            "name": "Karnet open 3 dni",
+            "price": "49",
+            "type": "normal",
+            "duration": "3"
+          }
+        ]
+      }
+    },
+    {
+      "place_id": "ChIJg3_lkMZbFkcRdXiUQrXo058",
+      "name": "Saturn Fitness",
+      "photo": "https://saturn-fitness.bsof.pl/media/18/download/wellness.png?v=1",
+      "website": "https://saturn-fitness.bsof.pl/saturn-fitness-krakow",
+      "address": "Przemysłowa 4, 30-701 Kraków",
+      "latitude": "50.04914745235386",
+      "longitude": "19.958263000322237",
+      "phone number": "+48 12 314 59 27",
+      "opening hours": {
+        "monday": "00:00 - 23:59",
+        "tuesday": "00:00 - 23:59",
+        "wednesday": "00:00 - 23:59",
+        "thursday": "00:00 - 23:59",
+        "friday": "00:00 - 23:59",
+        "saturday": "00:00 - 23:59",
+        "sunday": "00:00 - 23:59"
+      },
+      "honored": [
+        "multisport",
+        "medicover"
+      ],
+      "opinion": 4.7,
+      "opinions_number": 103,
+      "services": [
+        "sala fitness",
+        "siłownia"
+      ],
+      "pricing": {
+        "cards": [
+          {
+            "name": "Open 12 plus",
+            "price": "99",
+            "duration": "12",
+            "type": "normal"
+          },
+          {
+            "name": "Open samoodnawialny",
+            "price": "129",
+            "duration": "none",
+            "type": "normal"
+          },
+          {
+            "name": "Open Basic",
+            "price": "130",
+            "duration": "1",
+            "type": "normal"
+          }
+        ],
+        "single": [
+          {
+            "name": "Wejście jednorazowe",
+            "price": "39",
+            "type": "normal",
+            "duration": "1"
+          },
+          {
+            "name": "Karnet open 3 dni",
+            "price": "49",
+            "type": "normal",
+            "duration": "3"
+          }
+        ]
+      }
+    },
+    {
+      "place_id": "ChIJzV04-qBbFkcRcjBPnM53KXI",
+      "name": "XXS GYM",
+      "photo": "https://lh5.googleusercontent.com/p/AF1QipPlCZsFkOX9wOzUqIBuCoDyL0WITddwS1M1qyS5=w408-h272-k-no",
+      "website": "https://xxsgymzablocie-krakow.cms.efitness.com.pl/",
+      "address": "Zabłocie 24, 30-701 Kraków",
+      "latitude": "50.05156364462738",
+      "longitude": "19.967366719420536",
+      "phone number": "+48 885267799",
+      "opening hours": {
+        "monday": "00:00 - 23:59",
+        "tuesday": "00:00 - 23:59",
+        "wednesday": "00:00 - 23:59",
+        "thursday": "00:00 - 23:59",
+        "friday": "00:00 - 23:59",
+        "saturday": "00:00 - 23:59",
+        "sunday": "00:00 - 23:59"
+      },
+      "honored": [
+        "multisport"
+      ],
+      "opinion": 4.7,
+      "opinions_number": 103,
+      "services": [
+        "sala fitness",
+        "siłownia"
+      ],
+      "pricing": {
+        "cards": [
+          {
+            "name": "Open 12 plus",
+            "price": "99",
+            "duration": "12",
+            "type": "normal"
+          },
+          {
+            "name": "Open samoodnawialny",
+            "price": "129",
+            "duration": "none",
+            "type": "normal"
+          },
+          {
+            "name": "Open Basic",
+            "price": "190",
+            "duration": "1",
+            "type": "normal"
+          }
+        ],
+        "single": [
+          {
+            "name": "Wejście jednorazowe",
+            "price": "39",
+            "type": "normal",
+            "duration": "1"
+          },
+          {
+            "name": "Karnet open 3 dni",
+            "price": "49",
+            "type": "normal",
+            "duration": "3"
+          }
+        ]
+      }
+    },
+    {
+      "place_id": "ChIJkyE9XwpbFkcR4Jgo_kK0wq0",
+      "name": "R & K Siłownia, Sauna, Fitness, Treningi",
+      "photo": "https://www.rik-fitness.pl/wp-content/uploads/2022/03/1645992205016-scaled.jpg",
+      "website": "http://www.rik-fitness.pl/",
+      "address": "aleja Adama Mickiewicza 5, 31-120 Kraków",
+      "latitude": "50.06261540321797",
+      "longitude": "19.924915143826215",
+      "phone number": "+48 122926168",
+      "opening hours": {
+        "monday": "00:00 - 23:59",
+        "tuesday": "00:00 - 23:59",
+        "wednesday": "00:00 - 23:59",
+        "thursday": "00:00 - 23:59",
+        "friday": "00:00 - 23:59",
+        "saturday": "00:00 - 23:59",
+        "sunday": "00:00 - 23:59"
+      },
+      "honored": [
+        "medicover"
+      ],
+      "opinion": 4.7,
+      "opinions_number": 103,
+      "services": [
+        "sala fitness",
+        "siłownia",
+        "sauna"
+      ],
+      "pricing": {
+        "cards": [
+          {
+            "name": "Open 12 plus",
+            "price": "99",
+            "duration": "12",
+            "type": "normal"
+          },
+          {
+            "name": "Open samoodnawialny",
+            "price": "129",
+            "duration": "none",
+            "type": "normal"
+          },
+          {
+            "name": "Open Basic",
+            "price": "88",
             "duration": "1",
             "type": "normal"
           }
@@ -199,5 +393,36 @@
         ]
       }
     }
+  ],
+  "outdoor gyms" : [
+    {
+      "name" : "Siłownia zewnętrzna Skawińska",
+      "photo": "https://lh5.googleusercontent.com/p/AF1QipNwF_hOUaHPQt0BuYcCKZfI-ZtklV7RK-3sPbCP=w408-h306-k-no",
+      "address": "Skawińska 20, 31-066 Kraków",
+      "latitude": "50.04828666977867",
+      "longitude": "19.937468075698803"
+    },
+    {
+      "name" : "Siłownia zewnętrzna Skawińska",
+      "photo": "https://lh5.googleusercontent.com/p/AF1QipNwF_hOUaHPQt0BuYcCKZfI-ZtklV7RK-3sPbCP=w408-h306-k-no",
+      "address": "Skawińska 20, 31-066 Kraków",
+      "latitude": "50.04828666977867",
+      "longitude": "19.937468075698803"
+    },
+    {
+      "name" : "Siłownia zewnętrzna Skawińska",
+      "photo": "https://lh5.googleusercontent.com/p/AF1QipNwF_hOUaHPQt0BuYcCKZfI-ZtklV7RK-3sPbCP=w408-h306-k-no",
+      "address": "Aleja Wawelska, 30-348 Kraków",
+      "latitude": "50.03184554791121",
+      "longitude": "19.907306899264466"
+    },
+    {
+      "name" : "Siłownia zewnętrzna obok Błoni",
+      "photo": "https://www.google.pl/maps/place/Si%C5%82ownia+Zewn%C4%99trzna/@50.0563987,19.9088071,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipPut4bKt30NHnqcF7yUff4Isx1UhrEtDM4b1Zmd!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipPut4bKt30NHnqcF7yUff4Isx1UhrEtDM4b1Zmd%3Dw203-h152-k-no!7i4608!8i3456!4m11!1m2!2m1!1zU2nFgm93bmlhIHpld27EmXRyem5h!3m7!1s0x47165b0e1c88dc5d:0xfd50e20536a8107a!8m2!3d50.0563987!4d19.9088071!10e5!15sChVTacWCb3duaWEgemV3bsSZdHJ6bmGSAQNneW3gAQA!16s%2Fg%2F11gk8qywc3?entry=ttu",
+      "address": "Zwierzyniec, 30-001 Kraków",
+      "latitude": "50.056668913774224",
+      "longitude": "19.908810261813592"
+    }
+
   ]
 }
