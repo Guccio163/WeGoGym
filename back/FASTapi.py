@@ -12,19 +12,6 @@ def read_all_data():
         data = json.load(file)
     return data
 
-
-@app.get("/all_data")
-async def read_root():
-    data = read_all_data()
-    return data
-
-
-@app.get("/gyms")
-async def read_gyms(multisport: bool, medicover: bool, services: str, sort_by_price: dict):
-    gyms = read_all_data()["gyms"]
-    return gyms
-
-
 @app.get("/gyms/{place_id}/rating")
 async def get_place_rating(place_id: str):
     return read_ratings().get_aggregate_rating(place_id)
