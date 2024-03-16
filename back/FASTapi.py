@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import json
 import datetime
+from typing import List
 
 app = FastAPI()
 
@@ -22,21 +23,12 @@ def is_time_between(time_str, start_time_str, end_time_str):
     else:
         return False
 
-
-@app.get("/all_data")
-async def read_root():
-    data = read_all_data()
-    return data
-
-
-@app.get("/by_price/month")
 async def read_by_price():
     data = read_all_data()
     return data
 
 
-@app.get("/open_now")
-async def read_by_price():
+async def open_now():
     data = read_all_data()
     response = {}
     for d in data["gyms"]:
@@ -52,4 +44,20 @@ async def read_by_price():
         if is_time_between(time_str, start_time_str, end_time_str):
             response.update(d)
     return response
+
+
+async def opinion():
+    data = read_all_data()
+    for gym in data['gyms']:
+        gym['combined_score'] = gym['opinion'] * 0.7 + gym['opinions_number'] * 0.3
+
+    return sorted(data['gyms'], key=lambda x: x['combined_score'], reverse=True)
+
+
+@app.get("/gyms")
+async def read_root(multisport: bool, medicover: bool, services: str, sort_by_price: dict):
+    gyms = read_all_data()["gyms"]
+
+
+
 
