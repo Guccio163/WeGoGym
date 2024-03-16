@@ -1,7 +1,6 @@
 {
-  "gyms": [
-    {
-      "place_id": "ChIJa4zKIjlbFkcRZKudZrU2pD4",
+  "gyms": {
+    "ChIJa4zKIjlbFkcRZKudZrU2pD4": {
       "name": "Fitness Platinium Klimeckiego",
       "photo": "http://fitnessplatinium.pl/content/uploads/2019/09/IMG_0002.jpg",
       "website": "https://fitnessplatinium.pl/kkf-klimeckiego/",
@@ -65,8 +64,7 @@
         ]
       }
     },
-    {
-      "place_id": "ChIJkVt0YbdaFkcRO0Ct2nUZKIg",
+    "ChIJkVt0YbdaFkcRO0Ct2nUZKIg": {
       "name": "Siłownia Power2fit",
       "photo": "",
       "website": "https://power2fit.pl/",
@@ -134,8 +132,7 @@
         ]
       }
     },
-    {
-      "place_id": "ChIJg3_lkMZbFkcRdXiUQrXo058",
+    "ChIJg3_lkMZbFkcRdXiUQrXo058": {
       "name": "CityFit",
       "photo": "https://power2fit.pl/wp-content/uploads/2015/10/Silownia_7860.jpg",
       "website": "https://cityfit.pl/kluby/krakow-principio/",
@@ -199,5 +196,5 @@
         ]
       }
     }
-  ]
+  }
 }
