@@ -10,6 +10,13 @@ def read_all_data():
     return data
 
 
+def read_gyms():
+    with open("data.json", "r") as file:
+        data = json.load(file)
+        gyms = data["gyms"]
+    return gyms
+
+
 @app.get("/all_data")
 async def read_root():
     data = read_all_data()
@@ -21,5 +28,21 @@ async def read_by_price():
     data = read_all_data()
     return data
 
+@app.get("data/gyms")
+async def get_medicover():
+    data = read_gyms()
+    honors = {}
+    for gym in data:
+        if "medicover" in gym["honored"]:
+            honors.update(gym)
+    return honors
 
+@app.get("data/gyms")
+async def get_multisport():
+    data = read_gyms()
+    honors = {}
+    for gym in data:
+        if "multisport" in gym["honored"]:
+            honors.update(gym)
+    return honors
 
