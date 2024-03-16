@@ -74,4 +74,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
+  hours: {
+    fontSize: 12,
+    alignSelf: "center",
+  },
+  address: {
+    fontSize: 14,
+    alignSelf: "center",
+  },
 });
