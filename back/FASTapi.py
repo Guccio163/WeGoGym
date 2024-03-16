@@ -5,6 +5,7 @@ from typing import List
 
 app = FastAPI()
 
+
 def read_all_data():
     with open("data.json", "r") as file:
         data = json.load(file)
@@ -21,7 +22,6 @@ async def read_root():
 async def read_gyms(multisport: bool, medicover: bool, services: str, sort_by_price: dict):
     gyms = read_all_data()["gyms"]
     return gyms
-
 
 
 def is_time_between(time_str, start_time_str, end_time_str):
@@ -60,7 +60,7 @@ async def open_now():
 
 
 async def get_medicover():
-    data = read_gyms()
+    data = await read_gyms()
     honors = {}
     for gym in data:
         print(gym)
@@ -70,7 +70,7 @@ async def get_medicover():
 
 
 async def get_multisport():
-    data = read_gyms()
+    data = await read_gyms()
     honors = {}
     for gym in data:
         if "multisport" in gym["honored"]:
@@ -79,7 +79,7 @@ async def get_multisport():
 
 
 async def get_services(service: str = ''):
-    data = read_gyms()
+    data = await read_gyms()
     with_service = {}
     for gym in data:
         if service in gym["services"]:
@@ -116,7 +116,7 @@ def get_price_key(gym, duration: str):
 
 
 async def by_prices(ascending: bool = True, duration: str = '1'):
-    gyms = read_gyms()
+    gyms = await read_gyms()
     if ascending:
         if duration == "day":
             results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, duration)))
