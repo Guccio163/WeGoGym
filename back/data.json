@@ -1,0 +1,203 @@
+{
+  "gyms": [
+    {
+      "place_id": "ChIJa4zKIjlbFkcRZKudZrU2pD4",
+      "name": "Fitness Platinium Klimeckiego",
+      "photo": "http://fitnessplatinium.pl/content/uploads/2019/09/IMG_0002.jpg",
+      "website": "https://fitnessplatinium.pl/kkf-klimeckiego/",
+      "address": "Stanisława Klimeckiego 1, 30-705 Kraków",
+      "latitude": "50.045198518259156",
+      "longitude": "19.971019913945828",
+      "phone number": "+48 691 553 595",
+      "opening hours": {
+        "monday": "06:00 - 23:00",
+        "tuesday": "06:00 - 23:00",
+        "wednesday": "06:00 - 23:00",
+        "thursday": "06:00 - 23:00",
+        "friday": "06:00 - 23:00",
+        "saturday": "8:00 - 20:00",
+        "sunday": "8:00 - 18:00"
+      },
+      "honored": [
+        "medicover"
+      ],
+      "opinion": 4.5,
+      "opinions_number": 439,
+      "services": [
+        "sala fitness",
+        "siłownia",
+        "sauna"
+      ],
+      "pricing": {
+        "cards": [
+          {
+            "name": "Open 12 plus",
+            "price": "99",
+            "duration": "12",
+            "type": "normal"
+          },
+          {
+            "name": "Open samoodnawialny",
+            "price": "129",
+            "duration": "none",
+            "type": "normal"
+          },
+          {
+            "name": "Open Basic",
+            "price": "159",
+            "duration": "1",
+            "type": "normal"
+          }
+        ],
+        "single": [
+          {
+            "name": "Wejście jednorazowe",
+            "price": "39",
+            "type": "normal",
+            "duration": "1"
+          },
+          {
+            "name": "Karnet open 3 dni",
+            "price": "49",
+            "type": "normal",
+            "duration": "3"
+          }
+        ]
+      }
+    },
+    {
+      "place_id": "ChIJkVt0YbdaFkcRO0Ct2nUZKIg",
+      "name": "Siłownia Power2fit",
+      "photo": "",
+      "website": "https://power2fit.pl/",
+      "address": "Kalwaryjska 9/15, 30-504 Kraków",
+      "latitude": "50.04330731402126",
+      "longitude": "19.94658674116105",
+      "phone number": "+48 606 515 494",
+      "opening hours": {
+        "monday": "07:30 - 22:00",
+        "tuesday": "06:00 - 22:00",
+        "wednesday": "06:00 - 22:00",
+        "thursday": "06:00 - 22:00",
+        "friday": "06:00 - 22:00",
+        "saturday": "08:00 - 14:00",
+        "sunday": "10:00 - 12:00"
+      },
+      "honored": [],
+      "opinion": 4.7,
+      "opinions_number": 103,
+      "services": [
+        "sala fitness",
+        "siłownia",
+        "sauna"
+      ],
+      "pricing": {
+        "cards": [
+          {
+            "name": "1 miesiąc",
+            "price": "100",
+            "duration": "1",
+            "type": "normal"
+          },
+          {
+            "name": "2 miesiące",
+            "price": "190",
+            "duration": "2",
+            "type": "normal"
+          },
+          {
+            "name": "6 miesięcy",
+            "price": "500",
+            "duration": "6",
+            "type": "normal"
+          },
+          {
+            "name": "6 miesięcy",
+            "price": "450",
+            "duration": "6",
+            "type": "discount"
+          }
+        ],
+        "single": [
+          {
+            "name": "1 wejście",
+            "price": "20",
+            "type": "normal",
+            "duration": "1"
+          },
+          {
+            "name": "4 wejścia",
+            "price": "60",
+            "type": "normal",
+            "duration": "4"
+          }
+        ]
+      }
+    },
+    {
+      "place_id": "ChIJg3_lkMZbFkcRdXiUQrXo058",
+      "name": "CityFit",
+      "photo": "https://cityfit.pl/wp-content/uploads/2019/08/1-700x740-14-700x440.jpg.webp",
+      "website": "https://cityfit.pl/kluby/krakow-principio/",
+      "address": "Armii Krajowej 25, 30-150 Kraków",
+      "latitude": "50.072061178012994",
+      "longitude": "19.892225279876378",
+      "phone number": "+48 122 908 800",
+      "opening hours": {
+        "monday": "00:00 - 23:59",
+        "tuesday": "00:00 - 23:59",
+        "wednesday": "00:00 - 23:59",
+        "thursday": "00:00 - 23:59",
+        "friday": "00:00 - 23:59",
+        "saturday": "00:00 - 23:59",
+        "sunday": "00:00 - 23:59"
+      },
+      "honored": [
+        "multisport"
+      ],
+      "opinion": 4.7,
+      "opinions_number": 103,
+      "services": [
+        "sala fitness",
+        "siłownia",
+        "sauna"
+      ],
+      "pricing": {
+        "cards": [
+          {
+            "name": "Open 12 plus",
+            "price": "99",
+            "duration": "12",
+            "type": "normal"
+          },
+          {
+            "name": "Open samoodnawialny",
+            "price": "129",
+            "duration": "none",
+            "type": "normal"
+          },
+          {
+            "name": "Open Basic",
+            "price": "159",
+            "duration": "1",
+            "type": "normal"
+          }
+        ],
+        "single": [
+          {
+            "name": "Wejście jednorazowe",
+            "price": "39",
+            "type": "normal",
+            "duration": "1"
+          },
+          {
+            "name": "Karnet open 3 dni",
+            "price": "49",
+            "type": "normal",
+            "duration": "3"
+          }
+        ]
+      }
+    }
+  ]
+}
