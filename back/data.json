@@ -87,7 +87,7 @@
         "saturday": "00:00 - 00:00",
         "sunday":"00:00 - 00:00"
       },
-      "honored" : [],
+      "honored" : ["multisport"],
       "opinion": 4.7,
       "opinions_number": 103,
       "services": ["sala fitness", "siłownia", "sauna"]

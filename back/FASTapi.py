@@ -28,6 +28,7 @@ async def read_by_price():
     data = read_all_data()
     return data
 
+
 @app.get("/medicover")
 async def get_medicover():
     data = read_gyms()
@@ -38,6 +39,7 @@ async def get_medicover():
             honors.update(gym)
     return honors
 
+
 @app.get("/multisport")
 async def get_multisport():
     data = read_gyms()
@@ -47,3 +49,21 @@ async def get_multisport():
             honors.update(gym)
     return honors
 
+
+@app.get("/services")
+async def get_services(service: str = ''):
+    data = read_gyms()
+    with_service = {}
+    for gym in data:
+        if service in gym["services"]:
+            with_service.update(gym)
+    return with_service
+
+@app.get("/services")
+async def get_services(service: str = ''):
+    data = read_gyms()
+    with_service = {}
+    for gym in data:
+        if service in gym["services"]:
+            with_service.update(gym)
+    return with_service
