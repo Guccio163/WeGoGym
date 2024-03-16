@@ -85,7 +85,7 @@ async def open_now():
 
 
 async def get_medicover():
-    data = read_gyms()
+    data = await read_gyms()
     honors = {}
     for gym in data:
         print(gym)
@@ -95,7 +95,7 @@ async def get_medicover():
 
 
 async def get_multisport():
-    data = read_gyms()
+    data = await read_gyms()
     honors = {}
     for gym in data:
         if "multisport" in gym["honored"]:
@@ -104,7 +104,7 @@ async def get_multisport():
 
 
 async def get_services(service: str = ''):
-    data = read_gyms()
+    data = await read_gyms()
     with_service = {}
     for gym in data:
         if service in gym["services"]:
@@ -141,7 +141,7 @@ def get_price_key(gym, duration: str):
 
 
 async def by_prices(ascending: bool = True, duration: str = '1'):
-    gyms = read_gyms()
+    gyms = await read_gyms()
     if ascending:
         if duration == "day":
             results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, duration)))
@@ -165,3 +165,5 @@ async def opinion():
         gym['combined_score'] = gym['opinion'] * 0.7 + gym['opinions_number'] * 0.3
 
     return sorted(data['gyms'], key=lambda x: x['combined_score'], reverse=True)
+
+
