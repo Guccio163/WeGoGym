@@ -33,7 +33,6 @@ async def get_medicover():
     return honors
 
 
-
 async def get_multisport():
     data = read_gyms()
     honors = {}
@@ -50,6 +49,7 @@ async def get_services(service: str = ''):
         if service in gym["services"]:
             with_service.update(gym)
     return with_service
+
 
 # if the duration is a number it searches for a card with such a duration,
 # or the cheapest multiple of 1 if there is no such length
@@ -79,9 +79,9 @@ def get_price_key(gym, duration: str):
     return lowest_price
 
 
-async def by_prices(lowest: bool = True, duration: str = '1'):
+async def by_prices(ascending: bool = True, duration: str = '1'):
     gyms = read_gyms()
-    if lowest:
+    if ascending:
         if duration == "day":
             results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, duration)))
         elif duration == "year":

@@ -2,7 +2,11 @@
   "gyms": [
     {
       "name": "Fitness Platinium Klimeckiego",
+      "photo": "",
+      "website": "https://fitnessplatinium.pl/kkf-klimeckiego/",
       "address": "Stanisława Klimeckiego 1, 30-705 Kraków",
+      "latitude" : "",
+      "longitude" : "",
       "phone number": "+48 691 553 595",
       "opening hours": {
         "monday": "06:00 - 23:00",
@@ -56,7 +60,11 @@
     },
     {
       "name": "Siłownia Power2fit",
+      "photo": "",
+      "website": "https://power2fit.pl/",
       "address": "Kalwaryjska 9/15, 30-504 Kraków",
+      "latitude" : "",
+      "longitude" : "",
       "phone number": "+48 606 515 494",
       "opening hours": {
         "monday": "07:30 - 22:00",
@@ -116,7 +124,11 @@
     },
     {
       "name": "CityFit",
+      "photo": "",
+      "website": "",
       "address": "Armii Krajowej 25, 30-150 Kraków",
+      "latitude" : "",
+      "longitude" : "",
       "phone number": "+48 122 908 800",
       "opening hours": {
         "monday": "00:00 - 00:00",
