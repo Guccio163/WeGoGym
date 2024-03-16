@@ -28,16 +28,17 @@ async def read_by_price():
     data = read_all_data()
     return data
 
-@app.get("data/gyms")
+@app.get("/medicover")
 async def get_medicover():
     data = read_gyms()
     honors = {}
     for gym in data:
+        print(gym)
         if "medicover" in gym["honored"]:
             honors.update(gym)
     return honors
 
-@app.get("data/gyms")
+@app.get("/multisport")
 async def get_multisport():
     data = read_gyms()
     honors = {}

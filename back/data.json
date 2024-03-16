@@ -91,24 +91,6 @@
       "opinion": 4.7,
       "opinions_number": 103,
       "services": ["sala fitness", "siłownia", "sauna"]
-    },
-    {
-      "name": "",
-      "address": "",
-      "phone number": "",
-      "opening hours": {
-        "monday": "",
-        "tuesday": "",
-        "wednesday": "",
-        "thursday": "",
-        "friday": "",
-        "saturday": "",
-        "sunday": ""
-      },
-      "opinion": 4.5,
-      "opinions_number": 1634,
-      "services": ["sala fitness", "siłownia", "sauna"]
-
     }
   ]
 }
