@@ -3,19 +3,21 @@ import { StyleSheet } from "react-native";
 import EditScreenInfo from "@/src/components/EditScreenInfo";
 import { Text, View } from "@/src/components/Themed";
 import Colors from "@/src/constants/Colors";
-import GetBooks from "@/src/components/GetBooks";
+import GetBooks from "@/src/components/own/GetBooks";
+import { useContext } from "react";
+import { ObjectsContext, SportObject } from "@/src/components/contexts/ObjectsContextProvider";
+import ObjectsList from "@/src/components/own/ObjectsList";
 
 export default function TabOneScreen() {
+  const { objects } = useContext(ObjectsContext);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <GetBooks/>
-      <View
-        style={styles.separator}
-        lightColor={Colors.light.tint}
-        darkColor={Colors.dark.tint}
-      />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <View>
+        <Text>
+          Filtry
+        </Text>
+      </View>
+      <ObjectsList/>
     </View>
   );
 }
