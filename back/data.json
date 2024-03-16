@@ -13,6 +13,7 @@
         "saturday": "8:00 - 20:00",
         "sunday": "8:00 - 18:00"
       },
+      "honored" : ["medicover"],
       "opinion": 4.5,
       "opinions_number": 439,
       "services": ["sala fitness", "siłownia", "sauna"],
@@ -49,6 +50,7 @@
         "saturday": "08:00 - 14:00",
         "sunday": "10:00 - 12:00"
       },
+      "honored" : [],
       "opinion": 4.7,
       "opinions_number": 103,
       "services": ["sala fitness", "siłownia", "sauna"],
