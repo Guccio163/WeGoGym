@@ -5,6 +5,7 @@ from typing import List
 
 app = FastAPI()
 
+
 def read_all_data():
     with open("data.json", "r") as file:
         data = json.load(file)
