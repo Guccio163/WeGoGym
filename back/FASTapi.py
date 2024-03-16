@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 import json
 import datetime
-from typing import List
 
 app = FastAPI()
+
 
 def read_all_data():
     with open("data.json", "r") as file:
@@ -18,10 +18,11 @@ async def read_root():
 
 
 @app.get("/gyms")
-async def read_gyms(multisport: bool, medicover: bool, services: str, sort_by_price: dict):
-    gyms = read_all_data()["gyms"]
+async def read_gyms(multisport: bool, medicover: bool, services: str, sort_by_price_ascending: bool, sort_by_duration: str):
+    gyms = read_all_data()
+    if multisport:
+        gyms = await get_multisport(gyms)
     return gyms
-
 
 
 def is_time_between(time_str, start_time_str, end_time_str):
@@ -59,8 +60,7 @@ async def open_now():
     return response
 
 
-async def get_medicover():
-    data = read_gyms()
+async def get_medicover(data):
     honors = {}
     for gym in data:
         print(gym)
@@ -69,8 +69,7 @@ async def get_medicover():
     return honors
 
 
-async def get_multisport():
-    data = read_gyms()
+async def get_multisport(data):
     honors = {}
     for gym in data:
         if "multisport" in gym["honored"]:
@@ -78,8 +77,7 @@ async def get_multisport():
     return honors
 
 
-async def get_services(service: str = ''):
-    data = read_gyms()
+async def get_services(data, service: str = ''):
     with_service = {}
     for gym in data:
         if service in gym["services"]:
