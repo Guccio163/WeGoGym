@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 import json
 import datetime
-from typing import List
+
+from user_ratings import RatingSystem, Rating, RatingData
 
 app = FastAPI()
 
@@ -18,10 +19,36 @@ async def read_root():
     return data
 
 
-@app.get("/gyms")
-async def read_gyms(multisport: bool, medicover: bool, services: str, sort_by_price: dict):
-    gyms = read_all_data()["gyms"]
-    return gyms
+@app.get("/gyms/{place_id}/rating")
+async def get_place_rating(place_id: str):
+    return read_ratings().get_aggregate_rating(place_id)
+
+
+@app.get("/gyms/{place_id}/rating/{user_id}")
+async def get_place_rating_by_user(place_id: str, user_id: str):
+    return read_ratings().get_rating(place_id, user_id)
+
+
+@app.put("/gyms/{place_id}/rating/{user_id}")
+async def put_rating(place_id: str, user_id: str, rating: RatingData):
+    ratings = read_ratings()
+    rating = Rating(user_id=user_id, personnel=rating.personnel.value, cleanliness=rating.cleanliness.value,
+                    equipment=rating.equipment.value)
+    ratings.add_rating(place_id, rating)
+    ratings.to_json()
+    return await get_place_rating_by_user(place_id, user_id)
+
+
+@app.delete("/gyms/{place_id}/rating/{user_id}")
+async def delete_rating(place_id: str, user_id: str):
+    ratings = read_ratings()
+    ratings.delete_rating(place_id, user_id)
+    ratings.to_json()
+    return
+
+
+def read_ratings():
+    return RatingSystem().from_json()
 
 
 def is_time_between(time_str, start_time_str, end_time_str):
@@ -36,15 +63,28 @@ def is_time_between(time_str, start_time_str, end_time_str):
         return False
 
 
-async def read_by_price():
-    data = read_all_data()
-    return data
+@app.get("/gyms")
+async def read_gyms(multisport: bool, medicover: bool, services: str, sort_by_price_ascending: bool,
+                    sort_by_duration: str, sort_by_opinion: bool, open_now: bool):
+    gyms = read_all_data()
+    if multisport and medicover:
+        gyms = await get_multisport_medicover(gyms)
+    elif multisport:
+        gyms = await get_multisport(gyms)
+    else:
+        gyms = await get_medicover(gyms)
+    gyms = await get_services(gyms, services)
+    gyms = await by_prices(gyms, sort_by_price_ascending, sort_by_duration)
+    if sort_by_opinion:
+        gyms = await by_opinion(gyms)
+    if open_now:
+        gyms = await by_open_now(gyms)
+    return gyms
 
 
-async def open_now():
-    data = read_all_data()
-    response = {}
-    for d in data["gyms"]:
+async def by_open_now(data):
+    response = []
+    for d in data:
         current_date = datetime.datetime.now()
         day_of_week = current_date.strftime("%A").lower()
         open_hour = d["opening hours"][day_of_week]
@@ -55,37 +95,8 @@ async def open_now():
         time_str = str(hour) + ":" + str(minute)
         print("!")
         if is_time_between(time_str, start_time_str, end_time_str):
-            response.update(d)
+            response.append(d)
     return response
-
-
-async def get_medicover():
-    data = await read_gyms()
-    honors = {}
-    for gym in data:
-        print(gym)
-        if "medicover" in gym["honored"]:
-            honors.update(gym)
-    return honors
-
-
-async def get_multisport():
-    data = await read_gyms()
-    honors = {}
-    for gym in data:
-        if "multisport" in gym["honored"]:
-            honors.update(gym)
-    return honors
-
-
-async def get_services(service: str = ''):
-    data = await read_gyms()
-    with_service = {}
-    for gym in data:
-        if service in gym["services"]:
-            with_service.update(gym)
-    return with_service
-
 
 # if the duration is a number it searches for a card with such a duration,
 # or the cheapest multiple of 1 if there is no such length
@@ -115,25 +126,6 @@ def get_price_key(gym, duration: str):
     return lowest_price
 
 
-async def by_prices(ascending: bool = True, duration: str = '1'):
-    gyms = await read_gyms()
-    if ascending:
-        if duration == "day":
-            results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, duration)))
-        elif duration == "year":
-            results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, '12')))
-        else:
-            results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, '1')))
-    else:
-        if duration == "day":
-            results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, duration), reverse=True))
-        elif duration == "year":
-            results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, '12'), reverse=True))
-        else:
-            results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, '1'), reverse=True))
-    return results
-
-
 async def opinion():
     data = read_all_data()
     for gym in data['gyms']:
@@ -142,3 +134,55 @@ async def opinion():
     return sorted(data['gyms'], key=lambda x: x['combined_score'], reverse=True)
 
 
+async def get_medicover(data):
+    honors = []
+    for gym in data["gyms"]:
+        if "medicover" in gym["honored"]:
+            honors.append(gym)
+    return honors
+
+
+async def get_multisport(data):
+    honors = []
+    for gym in data["gyms"]:
+        if "multisport" in gym["honored"]:
+            honors.append(gym)
+    return honors
+
+
+async def get_multisport_medicover(data):
+    honors = []
+    for gym in data["gyms"]:
+        honors.append(gym)
+    return honors
+
+
+async def get_services(data, service: str = ''):
+    with_service = []
+    for gym in data:
+        if service in gym["services"]:
+            with_service.append(gym)
+    return with_service
+
+
+async def by_prices(data, ascending: bool = True, duration: str = '1'):
+    gyms = data
+    if ascending:
+        if duration == "day":
+            results = list(sorted(gyms, key=lambda item: get_price_key(item, duration)))
+        elif duration == "year":
+            results = list(sorted(gyms, key=lambda item: get_price_key(item, '12')))
+        else:
+            results = list(sorted(gyms, key=lambda item: get_price_key(item, '1')))
+    else:
+        if duration == "day":
+            results = list(sorted(gyms, key=lambda item: get_price_key(item, duration), reverse=True))
+        elif duration == "year":
+            results = list(sorted(gyms, key=lambda item: get_price_key(item, '12'), reverse=True))
+        else:
+            results = list(sorted(gyms, key=lambda item: get_price_key(item, '1'), reverse=True))
+    return results
+
+
+async def by_opinion(data):
+    return sorted(data, key=lambda x: x['opinion'], reverse=True)
