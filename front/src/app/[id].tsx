@@ -23,8 +23,8 @@ export default function ObjectFullScreen() {
     <View style={styles.infoWrapper}>
       {/* <Text>this is fullscreen: {thisObject.name}</Text> */}
       <Text style={styles.name}> {thisObject.name}</Text>
-      <Text>{thisObject.address}</Text>
-      {thisObject.openinghours.map((hour)=><Text >{hour}</Text>)}
+      <Text style={styles.address}>{thisObject.address}</Text>
+      {thisObject.openinghours.map((hour)=><Text style={styles.hours} >{hour}</Text>)}
       <View></View>
       <MapView
         style={styles.map}
@@ -76,9 +76,12 @@ const styles = StyleSheet.create({
   },
   hours: {
     fontSize: 12,
+    lineHeight : 16,
     alignSelf: "center",
   },
   address: {
+    fontFamily : "coursive",
+    fontStyle : "italic",
     fontSize: 14,
     alignSelf: "center",
   },
