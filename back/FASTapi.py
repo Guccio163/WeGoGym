@@ -5,6 +5,11 @@ from typing import List
 
 app = FastAPI()
 
+def read_all_data():
+    with open("data.json", "r") as file:
+        data = json.load(file)
+    return data
+
 
 @app.get("/all_data")
 async def read_root():
@@ -15,6 +20,8 @@ async def read_root():
 @app.get("/gyms")
 async def read_gyms(multisport: bool, medicover: bool, services: str, sort_by_price: dict):
     gyms = read_all_data()["gyms"]
+    return gyms
+
 
 
 def is_time_between(time_str, start_time_str, end_time_str):
@@ -27,6 +34,11 @@ def is_time_between(time_str, start_time_str, end_time_str):
         return True
     else:
         return False
+
+
+async def read_by_price():
+    data = read_all_data()
+    return data
 
 
 async def open_now():
@@ -128,3 +140,5 @@ async def opinion():
         gym['combined_score'] = gym['opinion'] * 0.7 + gym['opinions_number'] * 0.3
 
     return sorted(data['gyms'], key=lambda x: x['combined_score'], reverse=True)
+
+
