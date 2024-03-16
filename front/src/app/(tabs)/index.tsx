@@ -13,9 +13,6 @@ export default function TabOneScreen() {
   return (
     <View style={styles.container}>
       <View>
-        <Text>
-          Filtry
-        </Text>
       </View>
       <ObjectsList/>
     </View>

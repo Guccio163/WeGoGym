@@ -1,39 +1,39 @@
 import React, { useContext } from "react";
 import { View, Text } from "../components/Themed";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
-import {StyleSheet} from "react-native";
+import { StyleSheet } from "react-native";
 import { useLocalSearchParams } from "expo-router";
-import ObjectsContextProvider, { ObjectsContext } from "../components/contexts/ObjectsContextProvider";
+import ObjectsContextProvider, {
+  ObjectsContext,
+} from "../components/contexts/ObjectsContextProvider";
 
 export default function ObjectFullScreen() {
-    const initialRegion = {
-      latitude: 50.04856324934265,
-      longitude: 19.96527798594424,
-      latitudeDelta: 0.005,
-      longitudeDelta: 0.005,
-    };
+  const { id } = useLocalSearchParams();
+  const { objects } = useContext(ObjectsContext);
+  const thisObject = objects.filter((item) => item.name == id)[0];
 
-    const {id} = useLocalSearchParams();
-    const {objects} = useContext(ObjectsContext);
-    // zmienić odsiewanie obiektów
-    const thisObject = objects.filter(
-      (item) => item.name == id
-    )[0];
+  const initialRegion = {
+    latitude: thisObject.lat,
+    longitude: thisObject.lon,
+    latitudeDelta: 0.005,
+    longitudeDelta: 0.005,
+  };
 
   return (
-      <View>
-        <Text>
-          this is fullscreen: {thisObject.name}
-        </Text>
-        <View></View>
-        <MapView
-          style={styles.map}
-          provider={PROVIDER_GOOGLE}
-          initialRegion={initialRegion}
-          showsUserLocation
-          showsMyLocationButton
-        />
-      </View>
+    <View style={styles.infoWrapper}>
+      {/* <Text>this is fullscreen: {thisObject.name}</Text> */}
+      <Text style={styles.name}> {thisObject.name}</Text>
+      <Text>{thisObject.address}</Text>
+      {thisObject.openinghours.map((hour)=><Text >{hour}</Text>)}
+      <View></View>
+      <MapView
+        style={styles.map}
+        provider={PROVIDER_GOOGLE}
+        initialRegion={initialRegion}
+        showsUserLocation
+        showsMyLocationButton
+      />
+    </View>
   );
 }
 
@@ -55,9 +55,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   infoWrapper: {
-    backgroundColor: "grey",
     flex: 1,
-    marginVertical: 10,
+    marginTop: 10,
     marginRight: 10,
   },
   image: {
@@ -69,5 +68,10 @@ const styles = StyleSheet.create({
     width: "95%",
     height: "50%",
     alignSelf: "center",
+  },
+  name: {
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });

@@ -13,9 +13,7 @@ export default function ObjectsList() {
       data={objects}
       renderItem={({ item }) => <ObjectsListItem object={item} />}
       style={styles.list}
-    >
-      <Text>chuj</Text>
-    </FlatList>
+    />
   );
 }
 

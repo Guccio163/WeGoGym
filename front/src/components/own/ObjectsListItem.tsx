@@ -21,27 +21,37 @@ export default function ObjectsListItem({ object }: Props) {
     longitudeDelta: 0.005,
   };
 
+  const getInitialRegion = (lat:number, lon:number)=>{
+    return {
+      latitude: lat,
+      longitude: lon,
+      latitudeDelta: 0.005,
+      longitudeDelta: 0.005,
+    };
+  }
+
   const navi = useRouter();
   return (
-    <View style={styles.itemWrapper}>
-      <Image
-        style={styles.image}
-        source={{ uri: object.img || defaultObjectImg }}
-      />
-      <View style={styles.infoWrapper}>
-        <Text>{object.name}</Text>
-        <Text>{object.address}</Text>
-        <Text>oena: {object.rate}</Text>
-        <StarRating rating={object.rate} />
-        <Pressable onPress={()=>navi.push(`/${object.name}`)}>
-          <MapView
+    <Pressable onPress={() => navi.push(`/${object.name}`)}>
+      <View style={styles.itemWrapper}>
+        <Image
+          style={styles.image}
+          source={{ uri: object.img || defaultObjectImg }}
+        />
+        <View style={styles.infoWrapper}>
+          <Text style={styles.name}>{object.name}</Text>
+          <Text>{object.address}</Text>
+          {/* <Text>ocena: {object.rate}</Text> */}
+
+          <StarRating rating={object.rate} />
+          {/* <MapView
             style={styles.map}
             provider={PROVIDER_GOOGLE}
-            initialRegion={initialRegion}
-          />
-        </Pressable>
+            initialRegion={getInitialRegion(object.lat, object.lon)}
+          /> */}
+        </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
@@ -63,7 +73,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   infoWrapper: {
-    backgroundColor: "grey",
     flex: 1,
     marginVertical: 10,
     marginRight: 10,
@@ -72,10 +81,17 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     margin: 10,
+    borderRadius: 10,
+
   },
   map: {
     width: "95%",
     height: "55%",
     alignSelf: "center",
+  },
+  name: {
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
