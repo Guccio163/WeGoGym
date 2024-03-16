@@ -12,6 +12,13 @@ def read_all_data():
         data = json.load(file)
     return data
 
+
+@app.get("/all_data")
+async def read_root():
+    data = read_all_data()
+    return data
+
+
 @app.get("/gyms/{place_id}/rating")
 async def get_place_rating(place_id: str):
     return read_ratings().get_aggregate_rating(place_id)
@@ -30,6 +37,14 @@ async def put_rating(place_id: str, user_id: str, rating: RatingData):
     ratings.add_rating(place_id, rating)
     ratings.to_json()
     return await get_place_rating_by_user(place_id, user_id)
+
+
+@app.delete("/gyms/{place_id}/rating/{user_id}")
+async def delete_rating(place_id: str, user_id: str):
+    ratings = read_ratings()
+    ratings.delete_rating(place_id, user_id)
+    ratings.to_json()
+    return
 
 
 def read_ratings():
