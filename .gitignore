@@ -7,3 +7,4 @@ expo-env.d.ts
 
 venv
 .idea
+back/__pycache__
