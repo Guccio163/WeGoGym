@@ -22,19 +22,36 @@
           {
             "name" : "Open 12 plus",
             "price" : "99",
-            "duration" : "12"
+            "duration" : "12",
+            "type" : "normal"
           },
           {
             "name" : "Open samoodnawialny",
             "price" : "129",
-            "duration" : "none"
+            "duration" : "none",
+            "type" : "normal"
           },
           {
             "name" : "Open Basic",
             "price" : "159",
-            "duration" : "1"
+            "duration" : "1",
+            "type" : "normal"
           }
-          ]
+          ],
+        "single" : [
+            {
+              "name": "Wejście jednorazowe",
+              "price" : "39",
+              "type" : "normal",
+              "duration" : "1"
+            },
+            {
+              "name": "Karnet open 3 dni",
+              "price" : "49",
+              "type" : "normal",
+              "duration" : "3"
+            }
+            ]
       }
     },
     {
@@ -59,19 +76,42 @@
           {
             "name" : "1 miesiąc",
             "price" : "100",
-            "duration" : "1"
+            "duration" : "1",
+            "type" : "normal"
           },
           {
             "name" : "2 miesiące",
             "price" : "190",
-            "duration" : "2"
+            "duration" : "2",
+            "type" : "normal"
           },
           {
             "name" : "6 miesięcy",
             "price" : "500",
-            "duration" : "6"
+            "duration" : "6",
+            "type" : "normal"
+          },
+          {
+            "name" : "6 miesięcy",
+            "price" : "450",
+            "duration" : "6",
+            "type" : "discount"
           }
-          ]
+          ],
+          "single" : [
+            {
+              "name": "1 wejście",
+              "price" : "20",
+              "type" : "normal",
+              "duration" : "1"
+            },
+            {
+              "name": "4 wejścia",
+              "price" : "60",
+              "type" : "normal",
+              "duration" : "4"
+            }
+            ]
       }
     },
     {
@@ -90,7 +130,43 @@
       "honored" : ["multisport"],
       "opinion": 4.7,
       "opinions_number": 103,
-      "services": ["sala fitness", "siłownia", "sauna"]
+      "services": ["sala fitness", "siłownia", "sauna"],
+      "pricing":{
+        "cards" : [
+          {
+            "name" : "Open 12 plus",
+            "price" : "99",
+            "duration" : "12",
+            "type" : "normal"
+          },
+          {
+            "name" : "Open samoodnawialny",
+            "price" : "129",
+            "duration" : "none",
+            "type" : "normal"
+          },
+          {
+            "name" : "Open Basic",
+            "price" : "159",
+            "duration" : "1",
+            "type" : "normal"
+          }
+          ],
+        "single" : [
+            {
+              "name": "Wejście jednorazowe",
+              "price" : "39",
+              "type" : "normal",
+              "duration" : "1"
+            },
+            {
+              "name": "Karnet open 3 dni",
+              "price" : "49",
+              "type" : "normal",
+              "duration" : "3"
+            }
+            ]
+      }
     }
   ]
 }
