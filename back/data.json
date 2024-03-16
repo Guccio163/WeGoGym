@@ -2,6 +2,7 @@
   "gyms": [
     {
       "name": "Fitness Platinium Klimeckiego",
+      "place_id": "ChIJa4zKIjlbFkcRZKudZrU2pD4",
       "address": "Stanisława Klimeckiego 1, 30-705 Kraków",
       "phone number": "+48 691 553 595",
       "opening hours": {
@@ -39,6 +40,7 @@
     },
     {
       "name": "Siłownia Power2fit",
+      "place_id": "ChIJkVt0YbdaFkcRO0Ct2nUZKIg",
       "address": "Kalwaryjska 9/15, 30-504 Kraków",
       "phone number": "+48 606 515 494",
       "opening hours": {
@@ -76,6 +78,7 @@
     },
     {
       "name": "CityFit",
+      "place_id": "ChIJg3_lkMZbFkcRdXiUQrXo058",
       "address": "Armii Krajowej 25, 30-150 Kraków",
       "phone number": "+48 122 908 800",
       "opening hours": {
