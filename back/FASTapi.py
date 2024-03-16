@@ -1,28 +1,8 @@
 from fastapi import FastAPI
 import json
 import datetime
-from typing import List
 
 app = FastAPI()
-
-
-def read_all_data():
-    with open("data.json", "r") as file:
-        data = json.load(file)
-    return data
-
-
-@app.get("/all_data")
-async def read_root():
-    data = read_all_data()
-    return data
-
-
-@app.get("/gyms")
-async def read_gyms(multisport: bool, medicover: bool, services: str, sort_by_price: dict):
-    gyms = read_all_data()["gyms"]
-    return gyms
-
 
 
 def is_time_between(time_str, start_time_str, end_time_str):
@@ -37,15 +17,39 @@ def is_time_between(time_str, start_time_str, end_time_str):
         return False
 
 
+def read_all_data():
+    with open("data.json", "r") as file:
+        data = json.load(file)
+    return data
+
+
+@app.get("/gyms")
+async def read_gyms(multisport: bool, medicover: bool, services: str, sort_by_price_ascending: bool,
+                    sort_by_price_duration: str, sort_by_opinion: bool, open_now: bool):
+    gyms = read_all_data()
+    if multisport and medicover:
+        gyms = await get_multisport_medicover(gyms)
+    elif multisport:
+        gyms = await get_multisport(gyms)
+    else:
+        gyms = await get_medicover(gyms)
+    gyms = await get_services(gyms, services)
+    gyms = await by_prices(gyms, sort_by_price_ascending, sort_by_price_duration)
+    if sort_by_opinion:
+        gyms = await by_opinion(gyms)
+    if open_now:
+        gyms = await by_open_now(gyms)
+    return gyms
+
+
 async def read_by_price():
     data = read_all_data()
     return data
 
 
-async def open_now():
-    data = read_all_data()
-    response = {}
-    for d in data["gyms"]:
+async def by_open_now(data):
+    response = []
+    for d in data:
         current_date = datetime.datetime.now()
         day_of_week = current_date.strftime("%A").lower()
         open_hour = d["opening hours"][day_of_week]
@@ -54,37 +58,39 @@ async def open_now():
         hour = current_time.hour
         minute = current_time.minute
         time_str = str(hour) + ":" + str(minute)
-        print("!")
         if is_time_between(time_str, start_time_str, end_time_str):
-            response.update(d)
+            response.append(d)
     return response
 
 
-async def get_medicover():
-    data = read_gyms()
-    honors = {}
-    for gym in data:
-        print(gym)
+async def get_medicover(data):
+    honors = []
+    for gym in data["gyms"]:
         if "medicover" in gym["honored"]:
-            honors.update(gym)
+            honors.append(gym)
     return honors
 
 
-async def get_multisport():
-    data = read_gyms()
-    honors = {}
-    for gym in data:
+async def get_multisport(data):
+    honors = []
+    for gym in data["gyms"]:
         if "multisport" in gym["honored"]:
-            honors.update(gym)
+            honors.append(gym)
     return honors
 
 
-async def get_services(service: str = ''):
-    data = read_gyms()
-    with_service = {}
+async def get_multisport_medicover(data):
+    honors = []
+    for gym in data["gyms"]:
+        honors.append(gym)
+    return honors
+
+
+async def get_services(data, service: str = ''):
+    with_service = []
     for gym in data:
         if service in gym["services"]:
-            with_service.update(gym)
+            with_service.append(gym)
     return with_service
 
 
@@ -116,28 +122,24 @@ def get_price_key(gym, duration: str):
     return lowest_price
 
 
-async def by_prices(ascending: bool = True, duration: str = '1'):
-    gyms = read_gyms()
+async def by_prices(data, ascending: bool = True, duration: str = '1'):
+    gyms = data
     if ascending:
         if duration == "day":
-            results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, duration)))
+            results = list(sorted(gyms, key=lambda item: get_price_key(item, duration)))
         elif duration == "year":
-            results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, '12')))
+            results = list(sorted(gyms, key=lambda item: get_price_key(item, '12')))
         else:
-            results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, '1')))
+            results = list(sorted(gyms, key=lambda item: get_price_key(item, '1')))
     else:
         if duration == "day":
-            results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, duration), reverse=True))
+            results = list(sorted(gyms, key=lambda item: get_price_key(item, duration), reverse=True))
         elif duration == "year":
-            results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, '12'), reverse=True))
+            results = list(sorted(gyms, key=lambda item: get_price_key(item, '12'), reverse=True))
         else:
-            results = dict(sorted(gyms.items(), key=lambda item: get_price_key(item, '1'), reverse=True))
+            results = list(sorted(gyms, key=lambda item: get_price_key(item, '1'), reverse=True))
     return results
 
 
-async def opinion():
-    data = read_all_data()
-    for gym in data['gyms']:
-        gym['combined_score'] = gym['opinion'] * 0.7 + gym['opinions_number'] * 0.3
-
-    return sorted(data['gyms'], key=lambda x: x['combined_score'], reverse=True)
+async def by_opinion(data):
+    return sorted(data, key=lambda x: x['opinion'], reverse=True)

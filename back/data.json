@@ -1,12 +1,13 @@
 {
-  "gyms": {
-    "ChIJa4zKIjlbFkcRZKudZrU2pD4": {
+  "gyms": [
+    {
+      "place_id": "ChIJa4zKIjlbFkcRZKudZrU2pD4",
       "name": "Fitness Platinium Klimeckiego",
-      "photo": "",
+      "photo": "http://fitnessplatinium.pl/content/uploads/2019/09/IMG_0002.jpg",
       "website": "https://fitnessplatinium.pl/kkf-klimeckiego/",
       "address": "Stanisława Klimeckiego 1, 30-705 Kraków",
-      "latitude": "",
-      "longitude": "",
+      "latitude": "50.045198518259156",
+      "longitude": "19.971019913945828",
       "phone number": "+48 691 553 595",
       "opening hours": {
         "monday": "06:00 - 23:00",
@@ -64,13 +65,14 @@
         ]
       }
     },
-    "ChIJkVt0YbdaFkcRO0Ct2nUZKIg": {
+    {
+      "place_id": "ChIJkVt0YbdaFkcRO0Ct2nUZKIg",
       "name": "Siłownia Power2fit",
       "photo": "",
       "website": "https://power2fit.pl/",
       "address": "Kalwaryjska 9/15, 30-504 Kraków",
-      "latitude": "",
-      "longitude": "",
+      "latitude": "50.04330731402126",
+      "longitude": "19.94658674116105",
       "phone number": "+48 606 515 494",
       "opening hours": {
         "monday": "07:30 - 22:00",
@@ -132,13 +134,14 @@
         ]
       }
     },
-    "ChIJg3_lkMZbFkcRdXiUQrXo058": {
+    {
+      "place_id": "ChIJg3_lkMZbFkcRdXiUQrXo058",
       "name": "CityFit",
-      "photo": "",
-      "website": "",
+      "photo": "https://cityfit.pl/wp-content/uploads/2019/08/1-700x740-14-700x440.jpg.webp",
+      "website": "https://cityfit.pl/kluby/krakow-principio/",
       "address": "Armii Krajowej 25, 30-150 Kraków",
-      "latitude": "",
-      "longitude": "",
+      "latitude": "50.072061178012994",
+      "longitude": "19.892225279876378",
       "phone number": "+48 122 908 800",
       "opening hours": {
         "monday": "00:00 - 23:59",
@@ -196,5 +199,5 @@
         ]
       }
     }
-  }
+  ]
 }

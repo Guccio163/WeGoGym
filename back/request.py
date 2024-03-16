@@ -5,7 +5,9 @@ params = {
     "medicover": True,
     "services": "sauna",
     "sort_by_price_ascending": True,
-    "sort_by_price_duration": "month"
+    "sort_by_price_duration": "month",
+    "sort_by_opinion": True,
+    "open_now": True
 
 }
 
