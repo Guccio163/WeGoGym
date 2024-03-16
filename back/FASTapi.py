@@ -1,30 +1,24 @@
 from fastapi import FastAPI
-import pandas as pd
+import json
 
 app = FastAPI()
 
 
-@app.get("/data/gyms")
-async def get_data():
-    # Read data from JSON file
+def read_all_data():
     with open("data.json", "r") as file:
         data = json.load(file)
-
-    # Extract gyms field
-    gyms_data = data.get("gyms")
-
-    return gyms_data
+    return data
 
 
-@app.get("/data/gyms")
-async def get_data():
-    # Read data from JSON file
+@app.get("/all_data")
+async def read_root():
     with open("data.json", "r") as file:
         data = json.load(file)
+    return data
 
-    # Extract gyms field
-    gyms_data = data.get("gyms")
+@app.get("/by_price")
+async def read_by_price():
+    with open("data.json", "r") as file:
 
-    return gyms_data
 
 
