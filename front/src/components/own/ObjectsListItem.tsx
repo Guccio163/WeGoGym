@@ -3,7 +3,7 @@ import { StyleSheet, Image, Pressable } from "react-native";
 import { View, Text } from "../Themed";
 import { SportObject } from "../contexts/ObjectsContextProvider";
 import StarRating from "./StarRating";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { useRouter } from "expo-router";
 // import { Ionicons } from "@expo/vector-icons";
 import Icon from "react-native-ionicons";
@@ -81,8 +81,11 @@ export default function ObjectsListItem({ object }: Props) {
           <Text>{object.address}</Text>
           {/* <Text>ocena: {object.rate}</Text> */}
           <StarRating rating={object.rate} />
-          <FontAwesomeIcon icon={faMugSaucer} />
-
+          <Marker
+            coordinate={{ latitude: 37.78825, longitude: -122.4324 }}
+            title="Nazwa punktu"
+            description="Opis punktu"
+          />
           {/* <MapView
             style={styles.map}
             provider={PROVIDER_GOOGLE}

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { View, Text } from "../components/Themed";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Image } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import ObjectsContextProvider, {
   ObjectsContext,
@@ -19,10 +19,21 @@ export default function ObjectFullScreen() {
     longitudeDelta: 0.005,
   };
 
+  const defaultObjectImg =
+    "https://holycrosspandithittaedu.com/uploads/products/default.jpg";
+
   return (
     <View style={styles.infoWrapper}>
       {/* <Text>this is fullscreen: {thisObject.name}</Text> */}
-      <View style={{ alignItems: "center", alignSelf: "center" }}>
+      <View
+        style={[
+          { alignItems: "center", alignSelf: "center" },
+        ]}
+      >
+        <Image
+          style={styles.image}
+          source={{ uri: thisObject.img || defaultObjectImg }}
+        />
         <Text style={styles.name}> {thisObject.name}</Text>
         <Text>{thisObject.address}</Text>
         {thisObject.openinghours.map((hour) => (
@@ -66,12 +77,11 @@ const styles = StyleSheet.create({
   },
   infoWrapper: {
     flex: 1,
-    paddingTop: 100,
     marginRight: 10,
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 500,
+    height: 200,
     margin: 10,
   },
   map: {
@@ -83,6 +93,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
+    marginBottom: 10,
   },
   hours: {
     fontWeight: "bold",
