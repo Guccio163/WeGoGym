@@ -40,6 +40,10 @@ export default function ObjectFullScreen() {
           <Text style={styles.hours}>{hour}</Text>
         ))}
       </View>
+      <Text style={styles.name}> {thisObject.name}</Text>
+      <Text style={styles.address}>{thisObject.address}</Text>
+      {thisObject.openinghours.map((hour)=><Text style={styles.hours} >{hour}</Text>)}
+      <View></View>
       <MapView
         style={styles.map}
         provider={PROVIDER_GOOGLE}
@@ -97,5 +101,14 @@ const styles = StyleSheet.create({
   },
   hours: {
     fontWeight: "bold",
+    fontSize: 12,
+    lineHeight : 16,
+    alignSelf: "center",
+  },
+  address: {
+    fontFamily : "coursive",
+    fontStyle : "italic",
+    fontSize: 14,
+    alignSelf: "center",
   },
 });

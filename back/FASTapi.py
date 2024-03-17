@@ -63,12 +63,6 @@ def is_time_between(time_str, start_time_str, end_time_str):
         return False
 
 
-def read_all_data():
-    with open("data.json", "r") as file:
-        data = json.load(file)
-    return data
-
-
 @app.get("/gyms")
 async def read_gyms(multisport: bool, medicover: bool, services: str, sort_by_price_ascending: bool,
                     sort_by_duration: str, sort_by_opinion: bool, open_now: bool):
@@ -103,7 +97,6 @@ async def by_open_now(data):
         if is_time_between(time_str, start_time_str, end_time_str):
             response.append(d)
     return response
-
 
 # if the duration is a number it searches for a card with such a duration,
 # or the cheapest multiple of 1 if there is no such length
@@ -170,35 +163,6 @@ async def get_services(data, service: str = ''):
         if service in gym["services"]:
             with_service.append(gym)
     return with_service
-
-
-# if the duration is a number it searches for a card with such a duration,
-# or the cheapest multiple of 1 if there is no such length
-# if the duration is day it searches for the lowest price for one day,
-# or if no one-time entry exists, the next cheapest one
-
-def get_price_key(gym, duration: str):
-    starting_price = 999999
-    lowest_price = starting_price
-    if duration == 'day':
-        for entry in gym["pricing"]["singles"]:
-            if int(entry["price"]) < lowest_price and entry["duration"] == '1':
-                lowest_price = int(entry["price"])
-        if lowest_price == starting_price:
-            for entry in gym["pricing"]["singles"]:
-                if int(entry["price"]) < lowest_price:
-                    lowest_price = int(entry["price"])
-    else:
-        for entry in gym["pricing"]["cards"]:
-            if entry["duration"] == duration and int(entry["price"]) < lowest_price:
-                lowest_price = int(entry["price"])
-        if lowest_price == starting_price:
-            for entry in gym["pricing"]["cards"]:
-                if int(entry["price"]) < lowest_price:
-                    lowest_price = int(entry["price"])
-            if int(duration) > 1:
-                lowest_price *= int(duration)
-    return lowest_price
 
 
 async def by_prices(data, ascending: bool = True, duration: str = '1'):

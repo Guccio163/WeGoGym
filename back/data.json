@@ -68,7 +68,7 @@
     {
       "place_id": "ChIJkVt0YbdaFkcRO0Ct2nUZKIg",
       "name": "Siłownia Power2fit",
-      "photo": "",
+      "photo": "https://power2fit.pl/wp-content/uploads/2015/10/Silownia_7860.jpg",
       "website": "https://power2fit.pl/",
       "address": "Kalwaryjska 9/15, 30-504 Kraków",
       "latitude": "50.04330731402126",
@@ -400,9 +400,7 @@
       "photo": "https://lh5.googleusercontent.com/p/AF1QipNwF_hOUaHPQt0BuYcCKZfI-ZtklV7RK-3sPbCP=w408-h306-k-no",
       "address": "Skawińska 20, 31-066 Kraków",
       "latitude": "50.04828666977867",
-      "longitude": "19.937468075698803",
-      "opinion": 4.4,
-      "opinions_number": 35
+      "longitude": "19.937468075698803"
     },
     {
       "name" : "Siłownia zewnętrzna Planty im. Floriana Nowackiego",

@@ -4,7 +4,7 @@
 __pycache__
 expo-env.d.ts
 # @end expo-cli
-
+front/node_modules/
 venv
 .idea
 back/__pycache__
