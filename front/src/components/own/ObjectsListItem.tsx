@@ -3,13 +3,8 @@ import { StyleSheet, Image, Pressable } from "react-native";
 import { View, Text } from "../Themed";
 import { SportObject } from "../contexts/ObjectsContextProvider";
 import StarRating from "./StarRating";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import { Marker } from "react-native-maps";
 import { useRouter } from "expo-router";
-// import { Ionicons } from "@expo/vector-icons";
-import Icon from "react-native-ionicons";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faMugSaucer } from "@fortawesome/free-solid-svg-icons/faMugSaucer";
-
 
 interface Props {
   object: SportObject;
